@@ -86,6 +86,7 @@ Os dados extraídos dos testes de latência formaram degraus gráficos que
 correspondem exatamente à topologia de memória reportada pelo sistema.
 
 ![gráfico](grafico_media_cache.png)
+![gráfico](grafico_media_cache_desenhado.png)
 
 - Fronteira da Cache L1d (32 KB): O patamar mais baixo e rápido de latência foi
   sustentado de 4 KB até a marca de 32 KB. Imediatamente após este valor,
