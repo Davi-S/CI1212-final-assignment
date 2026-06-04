@@ -14,8 +14,9 @@ cache; depois, o tamanho da L1, L2 e L3 de dados.
 Implemente e compare, em C/C++/GO, multiplicação de matriz e multiplicação de
 matrizes por bloco. Pesquise sobre o assunto e desenvolva exemplo interessante.
 
-Metas a serem atingidas: 0. Ler com atenção o artigo
+Metas a serem atingidas:
 
+0. Ler com atenção o artigo
 1. Definir conjunto de testes a serem realizados, escolham algo que vocês
    consigam fazer; podem ir aumentando a ambição à medida que conseguem
    resultados. de histórico em cada um.
