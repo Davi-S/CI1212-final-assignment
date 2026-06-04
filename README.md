@@ -67,16 +67,16 @@ Desenvolvemos um programa em C que aloca arrays de tamanhos crescentes (variando
 em potências de base 2, de 4 KB até 16 MB). A medição de tempo foi realizada com
 a função `clock_gettime` operando no modo `CLOCK_MONOTONIC`.
 
-Para anular a ação preditiva do processador (_hardware prefetcher_), o código
-realiza saltos de memória (_strides_) de 64 bytes, tamanho equivalente a uma
-linha de cache convencional.
+Para anular a ação preditiva do processador (_hardware prefetcher_ [1]), o
+código realiza saltos de memória (_strides_) de 64 bytes, tamanho equivalente a
+uma linha de cache convencional.
 
 A abordagem de execução foi calibrada empírica e iterativamente. Constamos que a
 execução de uma única varredura completa por todos os tamanhos de array produziu
 dados mais limpos do que a execução de múltiplas repetições sucessivas do mesmo
 tamanho em uma única execução do programa. Acreditamos que o supertreinamento
-dos preditores internos do chip, estavam atrapalhando os resultados quando os
-testes eram realizados centenas de vezes por um loop _for_ por execução do
+dos preditores internos do chip [2], estavam atrapalhando os resultados quando
+os testes eram realizados centenas de vezes por um loop _for_ por execução do
 programa. Executar o mesmo programa múltiplas vezes gera resultados parecidos,
 confirmando que o resultado não é uma coincidência.
 
@@ -100,4 +100,7 @@ correspondem exatamente à topologia de memória reportada pelo sistema.
   na memória RAM.
 
 Concluímos que a metodologia de teste alcançou sucesso em mapear o hardware.
+
+[1]: https://en.wikipedia.org/wiki/Cache_prefetching
+[2]: https://en.wikipedia.org/wiki/Branch_predictor
 
