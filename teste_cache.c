@@ -19,7 +19,8 @@ void executar_teste(size_t tamanho_bytes, int rodada, FILE *arquivo) {
     }
 
     // Máscara binária para garantir que o índice rotacione dentro do array.
-    // funciona perfeitamente quando o número de elementos é potência de 2
+    // É a mesma coisa que uma operação de módulo, mas bem mais rápida. funciona
+    // quando o número de elementos é potência de 2
     size_t mascara = num_elementos - 1;
 
     // Aquecimento da cache
@@ -30,6 +31,12 @@ void executar_teste(size_t tamanho_bytes, int rodada, FILE *arquivo) {
     struct timespec inicio, fim;
     clock_gettime(CLOCK_MONOTONIC, &inicio);
 
+    // Esse laço serve pra aumentar o valor do que está no idx. Ele vai
+    // atualizando o idx da seguinte forma: array[0] -> array[16]. Dessa forma
+    // pq a linha do cache è 64 bytes.
+    // Coloca um inteiro no array[0], e vai pro array[16]. Isso porque no
+    // array[1], array[2], etc (até o 15) vai ficar os vizinhos que a CPU pegou
+    // da cache. Isso força a sempre ter um cache novo.
     size_t idx = 0;
     for (size_t r = 0; r < REPETICOES; r++) {
         // Realiza uma operação de leitura e escrita
