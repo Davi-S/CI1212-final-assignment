@@ -42,10 +42,10 @@ Entregas: relatório e git com programas de teste e resultados
 
 ### Objetivo
 
-O objetivo é determinar empiricamente os tamanhos das memórias cache primárias e
-secundárias do processador por meio de testes de latência e, em seguida, validar
-os resultados obtidos comparando-os com as especificações físicas reais do
-hardware.
+O objetivo é determinar os tamanhos das linhas de cache e memórias cache
+primárias e secundárias do processador por meio de testes de latência, e, em
+seguida, validar os resultados obtidos comparando-os com as especificações
+físicas reais do hardware.
 
 ### Especificações do Ambiente de Teste
 
@@ -62,29 +62,64 @@ operacional Arch Linux:
 | **Cache L2**              | 512 KiB por núcleo (Total: 4 MiB em 8 instâncias)  |
 | **Cache L3**              | 4 MiB por partição (Total: 8 MiB em 2 instâncias)  |
 
-### Metodologia de Teste
+### Tamanho de uma linha de cache
+
+#### Metodologia de Teste
+
+Para isolar e descobrir o tamanho da linha de cache (cache line) do processador,
+a estratégia foi fixar o tamanho do array de teste. O tamanho escolhido foi 8 MB
+para exceder as capacidades das caches primárias da máquina, forçando os acessos
+aos níveis mais lentos (L3 e RAM). O parâmetro variável a cada execução foi o
+tamanho do salto (stride), iniciando em 4 bytes (tamanho de um inteiro) e
+dobrando até atingir 512 bytes.
+
+Quando o tamanho do salto se iguala ao tamanho exato da linha de cache (ou o
+supera), o programa passa a saltar completamente o bloco que acabou de ser
+trazido da memória. Consequentemente, cada iteração resulta em um novo cache
+miss, forçando o processador a buscar dados fora da cache repetidamente.
+
+#### Resultados e Validação
+
+![gráfico](grafico_linha_cache.png)
+![gráfico](grafico_linha_cache_desenhado.png)
+
+O tamanho da linha de cache é encontrado ao calcular da taxa de variação de
+latência entre os saltos consecutivos.
+
+Os dados demonstram que nos saltos iniciais (de 4 a 16 bytes), o tempo de acesso
+permanece estável em alta velocidade. O maior aumento de atraso registrado em
+todo o experimento ocorrem exatamente na transição para a marca de 64 bytes.
+
+Após a marca de 64 bytes, a derivada da curva diminui (onde saltos maiores, como
+128 e 256 bytes, não introduzem penalidades proporcionais).
+
+Isso mostra que a arquitetura do processador opera com linhas de cache de exatos
+64 bytes, como reportado por pelo sistema.
+
+### Tamanho das memórias cache
+
+#### Metodologia de Teste
 
 Desenvolvemos um programa em C que aloca arrays de tamanhos crescentes (variando
-em potências de base 2, de 4 KB até 16 MB). A medição de tempo foi realizada com
-a função `clock_gettime` operando no modo `CLOCK_MONOTONIC`.
+em potências de base 2, de 4 KB até 16 MB).
 
 Para anular a ação preditiva do processador (_hardware prefetcher_ [1]), o
 código realiza saltos de memória (_strides_) de 64 bytes, tamanho equivalente a
 uma linha de cache convencional.
 
-A abordagem de execução foi calibrada empírica e iterativamente. Constamos que a
-execução de uma única varredura completa por todos os tamanhos de array produziu
-dados mais limpos do que a execução de múltiplas repetições sucessivas do mesmo
+A abordagem de execução foi calibrada iterativamente. Constamos que a execução
+de uma única varredura completa por todos os tamanhos de array produziu dados
+mais limpos do que a execução de múltiplas repetições sucessivas do mesmo
 tamanho em uma única execução do programa. Acreditamos que o supertreinamento
 dos preditores internos do chip [2], estavam atrapalhando os resultados quando
 os testes eram realizados centenas de vezes por um loop _for_ por execução do
 programa. Executar o mesmo programa múltiplas vezes gera resultados parecidos,
 confirmando que o resultado não é uma coincidência.
 
-### Resultados e Validação Arquitetural
+#### Resultados e Validação
 
-Os dados extraídos dos testes de latência formaram degraus gráficos que
-correspondem exatamente à topologia de memória reportada pelo sistema.
+Os dados extraídos dos testes de latência formaram degraus que correspondem
+exatamente à topologia de memória reportada pelo sistema.
 
 ![gráfico](grafico_media_cache.png)
 ![gráfico](grafico_media_cache_desenhado.png)
