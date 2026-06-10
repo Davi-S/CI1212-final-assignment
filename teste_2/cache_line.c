@@ -49,7 +49,7 @@ int main() {
     printf("Teste de Linha de Cache\n");
     printf("Array fixado em %d MB\n", TAMANHO_ARRAY / (1024 * 1024));
 
-    FILE *arquivo = fopen("dados_linha_cache.csv", "w");
+    FILE *arquivo = fopen("dados.csv", "w");
     if (!arquivo)
         return 1;
     fprintf(arquivo, "Salto_Bytes,Latencia_ns\n");

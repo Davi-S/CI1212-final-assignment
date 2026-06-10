@@ -13,10 +13,6 @@
 void executar_teste(size_t tamanho_bytes, int rodada, FILE *arquivo) {
     size_t num_elementos = tamanho_bytes / sizeof(int);
     int *array = (int *)calloc(num_elementos, sizeof(int));
-    if (!array) {
-        printf("Erro ao alocar memória para %zu KB\n", tamanho_bytes / 1024);
-        return;
-    }
 
     // Máscara binária para garantir que o índice rotacione dentro do array.
     // É a mesma coisa que uma operação de módulo, mas bem mais rápida. funciona
@@ -33,7 +29,7 @@ void executar_teste(size_t tamanho_bytes, int rodada, FILE *arquivo) {
 
     // Esse laço serve pra aumentar o valor do que está no idx. Ele vai
     // atualizando o idx da seguinte forma: array[0] -> array[16]. Dessa forma
-    // pq a linha do cache è 64 bytes.
+    // porque a linha do cache é 64 bytes.
     // Coloca um inteiro no array[0], e vai pro array[16]. Isso porque no
     // array[1], array[2], etc (até o 15) vai ficar os vizinhos que a CPU pegou
     // da cache. Isso força a sempre ter um cache novo.
@@ -61,7 +57,7 @@ void executar_teste(size_t tamanho_bytes, int rodada, FILE *arquivo) {
 }
 
 int main() {
-    FILE *arquivo = fopen("dados_cache.csv", "w");
+    FILE *arquivo = fopen("dados.csv", "w");
     if (!arquivo) {
         printf("Erro ao abrir o arquivo.\n");
         return 1;
@@ -81,7 +77,7 @@ int main() {
     }
 
     fclose(arquivo);
-    printf("Dados salvos em 'dados_cache.csv'.\n");
+    printf("Dados salvos.\n");
     return 0;
 }
 

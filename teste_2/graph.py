@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 def gerar_grafico_linha():
     # Lê o novo arquivo gerado pelo C
     try:
-        df = pd.read_csv("dados_linha_cache.csv")
+        df = pd.read_csv("dados.csv")
     except FileNotFoundError:
-        print("Arquivo 'dados_linha.csv' não encontrado.")
+        print("Arquivo não encontrado.")
         return
 
     plt.figure(figsize=(10, 6))

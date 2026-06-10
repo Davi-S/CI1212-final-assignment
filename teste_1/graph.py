@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def gerar_grafico_cache():
     # Lê o arquivo CSV
-    df = pd.read_csv("dados_cache.csv")
+    df = pd.read_csv("dados.csv")
 
     # Agrupa por tamanho e calcula a média das execuções para cada ponto
     df_media = df.groupby("Tamanho_KB")["Latencia_ns"].mean().reset_index()
