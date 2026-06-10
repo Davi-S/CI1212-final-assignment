@@ -1,2 +1,2 @@
 run:
-	gcc -O0 cache_latency.c -o cache_latency 
+	gcc -O0 cache_line.c -o cache_line
