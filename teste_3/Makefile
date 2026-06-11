@@ -1,2 +1,2 @@
 run:
-	gcc matrixmult.c -o matrixmult -O0
+	gcc matrixmult.c -o matrixmult -O3
