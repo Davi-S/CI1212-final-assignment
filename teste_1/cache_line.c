@@ -2,13 +2,21 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Array fixo em X MB para garantir que os dados caiam na L3 ou RAM,
-// assim s falhas de cache ficam bem visíveis no tempo final.
+/* Array de 8 MB utilizado para que os acessos não fiquem restritos
+   às caches menores do processador, tornando as diferenças de
+   desempenho mais visíveis durante o teste */
 #define TAMANHO_ARRAY (8 * 1024 * 1024)
 #define REPETICOES 100000000
 
 void testar_linha(int stride_bytes, FILE *arquivo) {
+
+    /*  Stride (salto) : 
+        Quantidade de posições avançadas no vetor a cada acesso.
+        Se o stride_bytes for 16 bytes, o stride de inteiros 
+        será de 4 inteiros por acesso (array[0], array[4], ...) */
     int stride_elementos = stride_bytes / sizeof(int);
+
+    // Quantidade de inteiros dentro do array
     size_t num_elementos = TAMANHO_ARRAY / sizeof(int);
 
     int *array = (int *)calloc(num_elementos, sizeof(int));
@@ -28,13 +36,12 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
     size_t idx = 0;
     for (size_t r = 0; r < REPETICOES; r++) {
         array[idx]++;
-        idx = (idx + stride_elementos) & mascara;
+        idx = (idx + stride_elementos) & mascara; // equivalente a idx = (idx + stride) % num_elementos; mas mais eficiente
     }
 
     clock_gettime(CLOCK_MONOTONIC, &fim);
 
-    double tempo_total =
-        (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
+    double tempo_total = (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
     double tempo_por_acesso = (tempo_total / REPETICOES) * 1e9;
 
     // Mostra e salva no arquivo
