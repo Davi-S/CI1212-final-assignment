@@ -8,7 +8,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install pandas matplotlib
 ```
-## Primeiro Teste: Identificação do Tamanho da Linha de Cache
+## Primeiro Teste: Inferência do Tamanho da Linha de Cache a partir da Latência de Acesso
 
 ## Segundo teste: Determinação dos Tamanhos das Memórias Cache
 

@@ -18,7 +18,7 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
         stride_elementos = stride_bytes / sizeof(int);
 
         // Quantidade de inteiros dentro do array, deve ser potência de 2 para a var mascara funcionar
-        num_elementos = TAMANHO_ARRAY / sizeof(int);
+        num_elementos = TAMANHO_ARRAY / sizeof(int); // 2.097.152 de inteiros  
 
         array = malloc(num_elementos * sizeof(int));
         if (!array)
