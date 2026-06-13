@@ -1,5 +1,13 @@
 # Trabalho da disciplina arquitetura de computadores (CI1212) : Análise de memória cache
 
+
+## Requisitos 
+```bash
+sudo apt install python3-pip python3-venv
+python3 -m venv venv
+source venv/bin/activate
+pip install pandas matplotlib
+```
 ## Primeiro Teste: Identificação do Tamanho da Linha de Cache
 
 ## Segundo teste: Determinação dos Tamanhos das Memórias Cache
@@ -11,7 +19,7 @@
     <th colspan="2">Arquivos
   </tr>
   <tr>
-    <td>*cache.c</td>
+    <td>cache.c</td>
     <td>Realiza os testes de latência</td>
   </tr>
   <tr>
