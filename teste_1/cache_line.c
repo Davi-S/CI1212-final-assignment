@@ -23,9 +23,10 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
     if (!array)
         return;
 
+    // Mascara serve para não acessar elemento fora do array, evita seg fault
     size_t mascara = num_elementos - 1;
 
-    // Aquecimento da memória
+    // Aquecimento da memória para reduzir o impacto dos page faults para que o benchmark meça principalmente o comportamento da cache.
     for (size_t i = 0; i < num_elementos; i++) {
         array[i] = 0;
     }
@@ -33,6 +34,7 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
     struct timespec inicio, fim;
     clock_gettime(CLOCK_MONOTONIC, &inicio);
 
+    // neste loop ele vai colocando 0 0 0 0 0 00 depo
     size_t idx = 0;
     for (size_t r = 0; r < REPETICOES; r++) {
         array[idx]++;
