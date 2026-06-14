@@ -6,9 +6,8 @@
    desempenho mais visíveis durante o teste */
 #define TAMANHO_ARRAY (8 * 1024 * 1024)
 
-// Repetições de quantas vezes colocaremos dados no array (1 milhão)
+// Repetições de quantas vezes colocaremos dados no array (100 milhões)
 #define REPETICOES 100000000
-
 
 void testar_linha(int stride_bytes, FILE *arquivo);
 

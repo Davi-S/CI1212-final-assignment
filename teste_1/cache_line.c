@@ -24,10 +24,12 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
         if (!array)
                 return;
 
-        // Mascara serve para não acessar elemento fora do array, evita seg fault
+        // Mascara para garantir que o índice rotacione dentro do array. 
         mascara = num_elementos - 1;     
 
-        // Aquecimento da memoria para nao haver page fault quando formos escrever no array
+        /* Aquecimento da memoria para garantir que as páginas já foram mapeadas.
+           Evita page fault durante o benchmark.
+        */
         for (i = 0; i < num_elementos; i++) {
                 array[i] = 0;
         }
@@ -49,7 +51,7 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
         tempo_total = (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
         tempo_por_acesso = (tempo_total / REPETICOES) * 1e9;
 
-        // Mostra e salva no arquivo
+        // Mostra na tela e grava no arquivo
         printf("Salto: %3d bytes # Tempo médio por acesso: %6.2f ns\n", stride_bytes, tempo_por_acesso);
         fprintf(arquivo, "%d,%.2f\n", stride_bytes, tempo_por_acesso);
 

@@ -43,7 +43,6 @@ def gerar_grafico_cache():
 
     plt.savefig("grafico_media_cache.png", dpi=300)
     print("Gráfico salvo.")
-    plt.show()
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ $(TARGET): $(OBJS)
 
 %.o: %.c cache_line.h
 	$(CC) $(CFLAGS) -c $< -o $@
-
+	
 clean:
 	rm -f $(OBJS) $(TARGET)
 

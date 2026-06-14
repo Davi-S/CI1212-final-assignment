@@ -8,6 +8,8 @@ int main() {
         FILE *arquivo = fopen("dados.csv", "w");
         if (!arquivo)
                 return 1;
+                
+        // Escreve os dados no arquivo .csv para a geração de gráficos
         fprintf(arquivo, "Salto_Bytes,Latencia_ns\n");
 
         // Varia o salto de 4 bytes (1 int) até 512 bytes

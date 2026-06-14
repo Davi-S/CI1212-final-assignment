@@ -37,7 +37,6 @@ def gerar_grafico_linha():
     plt.tight_layout()
     plt.savefig("grafico_linha_cache.png", dpi=300)
     print("Gráfico do tamanho da linha gerado com sucesso")
-    plt.show()
 
 
 if __name__ == "__main__":

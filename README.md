@@ -1,7 +1,7 @@
 # Trabalho da disciplina arquitetura de computadores (CI1212) : Análise de memória cache
 
 
-## Requisitos 
+## Requisitos para a geração de gráficos
 ```bash
 sudo apt install python3-pip python3-venv
 python3 -m venv venv
