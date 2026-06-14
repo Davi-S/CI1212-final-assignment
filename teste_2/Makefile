@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -g -O2
 
 TARGET = teste2
 
-SRCS = main.c cache_latency.c
+SRCS = main.c cache_size.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)
@@ -13,7 +13,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
 
-%.o: %.c cache_latency.h
+%.o: %.c cache_size.h
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:

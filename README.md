@@ -2,7 +2,8 @@
 
 
 ## Requisitos para a geração de gráficos
-Para gerar os gráficos, recomenda-se utilizar um ambiente virtual para instalar as dependências necessárias
+Para gerar os gráficos, recomenda-se utilizar um ambiente virtual para instalar as dependências necessárias.
+
 O ambiente virtual será criado na pasta `~/.venvs/cache-benchmark`:
 ```bash
 python3 -m venv ~/.venvs/cache-benchmark
@@ -12,25 +13,47 @@ pip install pandas matplotlib
 
 ## Primeiro Teste: Inferência do Tamanho da Linha de Cache a partir da Latência de Acesso
 
+### Descrição
+
+<table>
+  <tr>
+    <th>Arquivo</th>
+    <th>Função</th>
+  </tr>
+  <tr>
+    <td>cache_line.c</td>
+    <td>Executa o benchmark variando o salto entre acessos ao vetor.Realiza os testes de latência</td>
+  </tr>
+  <tr>
+    <td>graph.py</td>
+    <td>Gera o gráfico de latência em função do tamanho do salto.</td>
+  </tr>
+  <tr>
+    <td>dados.csv</td>
+    <td>Armazena os resultados coletados pelo benchmark.</td>
+  </tr>
+</table>
+
 ## Segundo teste: Determinação dos Tamanhos das Memórias Cache
 
 ### Descrição
 
 <table>
   <tr>
-    <th colspan="2">Arquivos
+    <th>Arquivo</th>
+    <th>Função</th>
   </tr>
   <tr>
-    <td>cache.c</td>
-    <td>Realiza os testes de latência</td>
+    <td>cache_size.c</td>
+    <td>Executa o benchmark variando o tamanho do vetor.</td>
   </tr>
   <tr>
     <td>graph.py</td>
-    <td>Gera os gráficos</td>
+    <td>Gera o gráfico de latência em função do tamanho do vetor.</td>
   </tr>
   <tr>
     <td>dados.csv</td>
-    <td>Armazena os resultados</td>
+    <td>Armazena os resultados coletados pelo benchmark.</td>
   </tr>
 </table>
 

@@ -6,9 +6,13 @@
    desempenho mais visíveis durante o teste */
 #define TAMANHO_ARRAY (8 * 1024 * 1024)
 
-// Repetições de quantas vezes colocaremos dados no array (100 milhões)
+// Número total de acessos realizados ao array durante o benchmark
 #define REPETICOES 100000000
 
+/* Executa um benchmark variando o salto entre acessos consecutivos
+   ao array, permitindo analisar o efeito da localidade espacial e
+   do comportamento da cache no tempo de acesso.
+*/
 void testar_linha(int stride_bytes, FILE *arquivo);
 
 #endif

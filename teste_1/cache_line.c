@@ -17,7 +17,9 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
         */
         stride_elementos = stride_bytes / sizeof(int);
 
-        // Quantidade de inteiros dentro do array, deve ser potência de 2 para a var mascara funcionar
+        /* Quantidade de inteiros do array.
+           Deve ser potência de 2 para que a máscara funcione corretamente.
+        */
         num_elementos = TAMANHO_ARRAY / sizeof(int); // 2.097.152 de inteiros  
 
         array = malloc(num_elementos * sizeof(int));
@@ -27,7 +29,7 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
         // Mascara para garantir que o índice rotacione dentro do array. 
         mascara = num_elementos - 1;     
 
-        /* Aquecimento da memoria para garantir que as páginas já foram mapeadas.
+        /* Aquecimento da memória para garantir que as páginas já foram mapeadas.
            Evita page fault durante o benchmark.
         */
         for (i = 0; i < num_elementos; i++) {
@@ -51,7 +53,7 @@ void testar_linha(int stride_bytes, FILE *arquivo) {
         tempo_total = (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
         tempo_por_acesso = (tempo_total / REPETICOES) * 1e9;
 
-        // Mostra na tela e grava no arquivo
+        // Exibe os resultados e salva os dados para geração de gráficos
         printf("Salto: %3d bytes # Tempo médio por acesso: %6.2f ns\n", stride_bytes, tempo_por_acesso);
         fprintf(arquivo, "%d,%.2f\n", stride_bytes, tempo_por_acesso);
 
