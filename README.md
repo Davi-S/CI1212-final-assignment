@@ -34,7 +34,11 @@ pip install pandas matplotlib
   </tr>
 </table>
 
-## Segundo teste: Determinação dos Tamanhos das Memórias Cache
+Este teste avalia a latência média de acesso à memória para diferentes valores de stride (salto entre acessos consecutivos ao vetor). A análise dos resultados permite observar o impacto da localidade espacial no desempenho da memória cache.
+
+A partir da variação da latência em função do tamanho do salto, é possível inferir o tamanho aproximado da linha de cache do processador e compreender como o aproveitamento dos dados carregados influencia o tempo de acesso.
+
+## Segundo teste: Estimativa dos Tamanhos das Memórias Cache
 
 ### Descrição
 
@@ -57,15 +61,10 @@ pip install pandas matplotlib
   </tr>
 </table>
 
-Programa para análise de desempenho da memória cache. O teste mede a latência
-média de acesso a arrays de diferentes tamanhos, permitindo identificar os
-limites das caches da CPU e observar o impacto dos cache misses no tempo de
-execução.
+Este teste mede a latência média de acesso para vetores de diferentes tamanhos. À medida que o conjunto de dados cresce, os acessos passam a utilizar diferentes níveis da hierarquia de memória, como as caches L1, L2, L3 e a memória principal.
 
-O objetivo é determinar os tamanhos das memórias cache primárias e secundárias
-do processador por meio de testes de latência e, em seguida, validar os
-resultados obtidos comparando-os com as especificações físicas reais do
-hardware.
+O objetivo é estimar os tamanhos das memórias cache do processador por meio da análise dos pontos em que ocorre aumento da latência de acesso, comparando posteriormente os resultados obtidos com as especificações do hardware utilizado.
+
 
 ## Terceiro teste: Análise de Desempenho de Multiplicação de Matrizes por bloco
 
