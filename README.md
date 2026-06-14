@@ -2,12 +2,14 @@
 
 
 ## Requisitos para a geração de gráficos
+Para gerar os gráficos, recomenda-se utilizar um ambiente virtual para instalar as dependências necessárias
+O ambiente virtual será criado na pasta `~/.venvs/cache-benchmark`:
 ```bash
-sudo apt install python3-pip python3-venv
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv ~/.venvs/cache-benchmark
+source ~/.venvs/cache-benchmark/bin/activate
 pip install pandas matplotlib
 ```
+
 ## Primeiro Teste: Inferência do Tamanho da Linha de Cache a partir da Latência de Acesso
 
 ## Segundo teste: Determinação dos Tamanhos das Memórias Cache
