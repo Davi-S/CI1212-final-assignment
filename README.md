@@ -87,7 +87,7 @@ O objetivo é analisar o impacto da hierarquia de memória no tempo de execuçã
 
 ## Integrantes
 
-| Nome | GRR |
+| Nome | GRR                    |
 |--------|--------|
 | Thalísia Arianna Fernandes Fleck | GRR20256088 |
 | Davi Alves Sampaio | GRR20255653 |
