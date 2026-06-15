@@ -84,3 +84,13 @@ O objetivo é estimar os tamanhos das memórias cache do processador por meio da
 Este teste compara o desempenho da multiplicação convencional de matrizes com uma versão otimizada por blocos (blocking). A técnica de blocagem divide as matrizes em submatrizes menores, aumentando o reaproveitamento dos dados já carregados na memória cache.
 
 O objetivo é analisar o impacto da hierarquia de memória no tempo de execução da multiplicação de matrizes, comparando os tempos obtidos pelas diferentes implementações e observando os ganhos de desempenho proporcionados pela melhor utilização da cache.
+
+## Integrantes
+
+| Nome | GRR |
+|--------|--------|
+| Thalísia Arianna Fernandes Fleck | GRR20256088 |
+| Davi Alves Sampaio | GRR20255653 |
+| Haico de Toledo Boehs | GRR20253482 |
+| Melissa Goulart Kemp | GRR20255413 |
+| Analuiza Alves da Cruz | GRR20254471 |
