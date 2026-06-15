@@ -11,7 +11,7 @@ source ~/.venvs/cache-benchmark/bin/activate
 pip install pandas matplotlib
 ```
 
-## Primeiro Teste: Inferência do Tamanho da Linha de Cache a partir da Latência de Acesso
+## Primeiro Teste: Estimativa do Tamanho da Linha de Cache a partir da Latência de Acesso
 
 ### Descrição
 
@@ -87,7 +87,7 @@ O objetivo é analisar o impacto da hierarquia de memória no tempo de execuçã
 
 ## Integrantes
 
-| Nome | GRR                    |
+| Nome | GRR |
 |--------|--------|
 | Thalísia Arianna Fernandes Fleck | GRR20256088 |
 | Davi Alves Sampaio | GRR20255653 |

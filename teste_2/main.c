@@ -15,7 +15,7 @@ int main() {
 
         for (int rodada = 1; rodada <= NUM_EXECUCOES; rodada++) {
                 printf("Executando rodada %d de %d...\n", rodada, NUM_EXECUCOES);
-        // Testa arrays de 4 KB até 16 MB, dobrando o tamanho a cada execução
+                // Testa arrays de 4 KB até 16 MB, dobrando o tamanho a cada execução
                 for (size_t tam = 4 * 1024; tam <= 16 * 1024 * 1024; tam *= 2) {
                         executar_teste(tam, rodada, arquivo);
                 }

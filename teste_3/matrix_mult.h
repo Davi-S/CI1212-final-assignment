@@ -14,7 +14,7 @@
    o reaproveitamento dos dados já carregados na cache. O valor foi escolhido
    experimentalmente a partir dos melhores resultados observados.
 */
-#define BLOCK_SIZE 16 
+#define BLOCK_SIZE 16
 
 // Quantidade de execuções utilizadas para calcular os tempos médios.
 #define NUM_ROUNDS 5 

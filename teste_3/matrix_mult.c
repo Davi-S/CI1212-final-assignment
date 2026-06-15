@@ -10,6 +10,7 @@ void multiply_conventional(double *C, double *A, double *B, size_t n) {
                 for (j = 0; j < n; j++) {
                         // Inicializa a posição atual do resultado com zero
                         C[i * n + j] = 0.0;
+
                         // Loop interno realizando o somatório
                         for (k = 0; k < n; k++) {
                                 C[i * n + j] += A[i * n + k] * B[k * n + j];
@@ -36,7 +37,6 @@ void multiply_conventional_optimized(double *C, double *A, double *B, size_t n) 
                 }
         }
 }
-
 
 void multiply_blocked(double *C, double *A, double *B, size_t n, size_t block_size) {
         double tmpa;
