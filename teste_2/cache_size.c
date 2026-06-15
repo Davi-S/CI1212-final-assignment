@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "cache_latency.h"
+#include "cache_size.h"
 
 void executar_teste(size_t tamanho_bytes, int rodada, FILE *arquivo) {
         size_t num_elementos, mascara, idx, i;
