@@ -85,12 +85,31 @@ Este teste compara o desempenho da multiplicação convencional de matrizes com 
 
 O objetivo é analisar o impacto da hierarquia de memória no tempo de execução da multiplicação de matrizes, comparando os tempos obtidos pelas diferentes implementações e observando os ganhos de desempenho proporcionados pela melhor utilização da cache.
 
-## Integrantes
+<h2 align="center">Integrantes</h2>
 
-| Nome | GRR |
-|--------|--------|
-| Thalísia Arianna Fernandes Fleck | GRR20256088 |
-| Davi Alves Sampaio | GRR20255653 |
-| Haico de Toledo Boehs | GRR20253482 |
-| Melissa Goulart Kemp | GRR20255413 |
-| Analuiza Alves da Cruz | GRR20254471 |
+<table align="center">
+  <tr>
+    <th>Nome</th>
+    <th>GRR</th>
+  </tr>
+  <tr>
+    <td>Thalísia Arianna Fernandes Fleck</td>
+    <td>GRR20256088</td>
+  </tr>
+  <tr>
+    <td>Davi Alves Sampaio</td>
+    <td>GRR20255653</td>
+  </tr>
+  <tr>
+    <td>Haico de Toledo Boehs</td>
+    <td>GRR20253482</td>
+  </tr>
+  <tr>
+    <td>Melissa Goulart Kemp</td>
+    <td>GRR20255413</td>
+  </tr>
+  <tr>
+    <td>Analuiza Alves da Cruz</td>
+    <td>GRR20254471</td>
+  </tr>
+</table>
