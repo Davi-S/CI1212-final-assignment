@@ -2,7 +2,7 @@
 
 
 ## Requisitos para a geração de gráficos
-Para gerar os gráficos, é necessário o python instalado no sistema. Recomenda-se utilizar um ambiente virtual para instalar as dependências necessárias.
+Para gerar os gráficos, é necessário o python instalado no sistema. Recomenda-se utilizar um ambiente virtual (colocamos o nome de "cache-benchmark") para instalar as dependências necessárias.
 
 O ambiente virtual será criado na pasta `~/.venvs/cache-benchmark`:
 ```bash
@@ -10,7 +10,7 @@ python3 -m venv ~/.venvs/cache-benchmark
 source ~/.venvs/cache-benchmark/bin/activate
 pip install pandas matplotlib
 ```
-_Observação: Apenas a etapa de geração de gráficos foi implementada em Python, para fins de análise. O benchmark principal foi desenvolvido integralmente em linguagem C._
+_Observação: Apenas a etapa de geração de gráficos foi implementada em Python, para fins de análise. O benchmark principal foi desenvolvido integralmente em linguagem C como descrito no enunciado do trabalho._
 
 ## Primeiro Teste: Estimativa do Tamanho da Linha de Cache a partir da Latência de Acesso
 
