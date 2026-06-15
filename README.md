@@ -68,3 +68,19 @@ O objetivo é estimar os tamanhos das memórias cache do processador por meio da
 
 ## Terceiro teste: Análise de Desempenho de Multiplicação de Matrizes por bloco
 
+### Descrição
+
+<table>
+  <tr>
+    <th>Arquivo</th>
+    <th>Função</th>
+  </tr>
+  <tr>
+    <td>matrix_mult.c</td>
+    <td>Implementa as versões convencional, otimizada e em blocos da multiplicação de matrizes.</td>
+  </tr>
+</table>
+
+Este teste compara o desempenho da multiplicação convencional de matrizes com uma versão otimizada por blocos (blocking). A técnica de blocagem divide as matrizes em submatrizes menores, aumentando o reaproveitamento dos dados já carregados na memória cache.
+
+O objetivo é analisar o impacto da hierarquia de memória no tempo de execução da multiplicação de matrizes, comparando os tempos obtidos pelas diferentes implementações e observando os ganhos de desempenho proporcionados pela melhor utilização da cache.

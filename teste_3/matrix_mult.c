@@ -69,7 +69,6 @@ void multiply_blocked(double *C, double *A, double *B, size_t n, size_t block_si
         }
 }
 
-// Função auxiliar para inicializar a matriz com valores sequenciais
 void initialize_matrix(double *matrix, size_t n) {
         double num = 1.0;
         size_t i;
@@ -78,4 +77,8 @@ void initialize_matrix(double *matrix, size_t n) {
                 matrix[i] = num;
                 num += 1.0;
         }
+}
+
+double calcular_tempo(struct timespec inicio, struct timespec fim) {
+    return (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
 }

@@ -37,4 +37,8 @@ void multiply_blocked(double *C, double *A, double *B, size_t n, size_t block_si
 // Função auxiliar para inicializar a matriz com valores sequenciais
 void initialize_matrix(double *matrix, size_t n);
 
+// Calcula o tempo decorrido entre dois instantes em segundos.
+double calcular_tempo(struct timespec inicio, struct timespec fim); 
+
+
 #endif
