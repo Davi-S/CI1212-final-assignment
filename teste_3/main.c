@@ -60,7 +60,7 @@ int main() {
         printf("--- Resultados ---\n");
         if (time_blocked < time_conventional_optimized) {
                 speedup = time_conventional_optimized / time_blocked;
-                printf("A multiplicação em blocos foi %.2fx mais rápida.\n", speedup);
+                printf("A multiplicação em blocos foi %.2fx mais rápida que a versão convencional otimizada.\n\n", speedup);
         } else {
                 printf("A multiplicação em blocos não superou a versão convencional otimizada.\n\n");
         }

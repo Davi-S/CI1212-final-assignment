@@ -69,6 +69,36 @@ O objetivo é estimar os tamanhos das memórias cache do processador por meio da
 
 ## Terceiro teste: Análise de Desempenho de Multiplicação de Matrizes por bloco
 
+
+### Requisitos para rodar com o comando `perf`:
+```bash
+sudo sh -c 'echo 1 > /proc/sys/kernel/perf_event_paranoid'
+```
+> **Observação:** essa configuração é temporária e será restaurada após reiniciar o sistema.
+
+### Coleta de estatísticas gerais:
+
+O comando abaixo exibe métricas de execução, incluindo número de instruções, ciclos de CPU e informações sobre acesso à cache:
+
+```bash
+perf stat -e cycles,instructions,cache-references,cache-misses ./teste3
+```
+### Identificação de funções com maior número de cache misses
+
+Para registrar onde os *cache misses* ocorreram durante a execução:
+
+```bash
+perf record -e cache-misses ./teste3
+```
+
+Após a coleta, visualize o relatório:
+
+```bash
+perf report
+```
+
+O relatório apresenta as funções que mais contribuíram para a ocorrência de *cache misses*, auxiliando na identificação de gargalos de desempenho relacionados ao uso da memória.
+
 ### Descrição
 
 <table>

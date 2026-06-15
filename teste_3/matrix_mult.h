@@ -1,13 +1,12 @@
 #ifndef __MATRIXMULT__
 #define __MATRIXMULT__
 
-/*
-   Matrizes maiores tendem a exceder a capacidade das caches do processador,
+/* Matrizes maiores tendem a exceder a capacidade das caches do processador,
    tornando mais visível o impacto dos cache misses e os benefícios da
    multiplicação em blocos. O tamanho utilizado foi definido
    experimentalmente a partir dos resultados obtidos durante os testes.
 */
-#define MATRIX_SIZE 2048 
+#define MATRIX_SIZE 4096
 
 /* Tamanho dos blocos utilizados na multiplicação em blocos.
    A técnica de blocking divide a matriz em submatrizes menores para aumentar
@@ -17,7 +16,7 @@
 #define BLOCK_SIZE 16
 
 // Quantidade de execuções utilizadas para calcular os tempos médios.
-#define NUM_ROUNDS 5 
+#define NUM_ROUNDS 1
 
 // Multiplicação convencional de matrizes
 void multiply_conventional(double *C, double *A, double *B, size_t n);

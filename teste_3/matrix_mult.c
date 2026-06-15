@@ -48,17 +48,19 @@ void multiply_blocked(double *C, double *A, double *B, size_t n, size_t block_si
                 for (j = 0; j < n; j++) 
                         C[i * n + j] = 0.0;
                 
-                // Multiplicação em blocos para j e k
-                // Observe que estes loops não avançam de um em um, mas dão saltos
-                // largos. Em vez de focar em um único número, o código está
-                // selecionando uma submatriz de tamanho block_size x block_size
+                /* Multiplicação em blocos para j e k
+                   Observe que estes loops não avançam de um em um, mas dão saltos
+                   largos. Em vez de focar em um único número, o código está
+                   selecionando uma submatriz de tamanho block_size x block_size
+                */
                 for (k = 0; k < n; k += block_size) {
                         k2max = (k + block_size <= n ? k + block_size : n);
                         for (j = 0; j < n; j += block_size) {
                                 j2max = (j + block_size <= n ? j + block_size : n);
 
-                                // Aqui dentro, nós estamos resolvendo apenas as multiplicações
-                                // daquele pequeno bloco selecionado
+                                /* Aqui dentro, nós estamos resolvendo apenas as multiplicações
+                                   daquele pequeno bloco selecionado
+                                */
                                 for (k2 = k; k2 < k2max; k2++) {
                                         tmpa = A[i * n + k2];
                                         for (j2 = j; j2 < j2max; j2++) 
