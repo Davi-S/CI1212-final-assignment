@@ -83,7 +83,7 @@ O comando abaixo exibe métricas de execução, incluindo número de instruçõe
 ```bash
 perf stat -e cycles,instructions,cache-references,cache-misses ./teste3
 ```
-### Identificação de funções com maior número de cache misses
+### Identificação de funções com maior número de cache misses:
 
 Para registrar onde os *cache misses* ocorreram durante a execução:
 
