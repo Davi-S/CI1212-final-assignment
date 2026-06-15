@@ -10,7 +10,7 @@ python3 -m venv ~/.venvs/cache-benchmark
 source ~/.venvs/cache-benchmark/bin/activate
 pip install pandas matplotlib
 ```
-<u>Observação:</u> Apenas a etapa de geração de gráficos foi implementada em Python, para fins de análise. O benchmark principal foi desenvolvido integralmente em linguagem C.
+_Observação: Apenas a etapa de geração de gráficos foi implementada em Python, para fins de análise. O benchmark principal foi desenvolvido integralmente em linguagem C._
 
 ## Primeiro Teste: Estimativa do Tamanho da Linha de Cache a partir da Latência de Acesso
 
