@@ -2,7 +2,7 @@
 
 
 ## Requisitos para a geração de gráficos
-Para gerar os gráficos, é necessário o python instalado no sistema. Recomenda-se utilizar um ambiente virtual (colocamos o nome de "cache-benchmark") para instalar as dependências necessárias.
+Para gerar os gráficos, é necessário o python instalado no sistema. Recomenda-se utilizar um ambiente virtual para instalar as dependências necessárias.
 
 O ambiente virtual será criado na pasta `~/.venvs/cache-benchmark`:
 ```bash
