@@ -72,6 +72,7 @@ O objetivo é estimar os tamanhos das memórias cache do processador por meio da
 
 ### Requisitos para rodar com o comando `perf`:
 ```bash
+
 sudo sh -c 'echo 1 > /proc/sys/kernel/perf_event_paranoid'
 ```
 > **Observação:** essa configuração é temporária e será restaurada após reiniciar o sistema.
@@ -94,7 +95,7 @@ perf record -e cache-misses ./teste3
 Após a coleta, visualize o relatório:
 
 ```bash
-perf report
+perf report --stdio
 ```
 
 O relatório apresenta as funções que mais contribuíram para a ocorrência de *cache misses*, auxiliando na identificação de gargalos de desempenho relacionados ao uso da memória.

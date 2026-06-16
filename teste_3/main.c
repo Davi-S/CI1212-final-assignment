@@ -18,7 +18,7 @@ int main() {
                 return 1;
         }
 
-        printf("Iniciando teste de multiplicação de matrizes:\n\n");
+        printf("\nIniciando teste de multiplicação de matrizes:\n\n");
         printf("Tamanho da Matriz: %d x %d\n", MATRIX_SIZE, MATRIX_SIZE);
         printf("Tamanho do Bloco:  %d\n", BLOCK_SIZE);
         printf("Rodadas:           %d\n\n", NUM_ROUNDS);
