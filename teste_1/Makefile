@@ -1,7 +1,7 @@
 CC = gcc
 
 # Compila com otimizações (-O2) para melhor representar o comportamento da cache em execução real.
-CFLAGS = -Wall -Wextra -Werror -g -O2
+CFLAGS = -Wall -Wextra -Werror -g -02
 
 TARGET = teste1
 
